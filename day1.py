@@ -27,17 +27,17 @@ print(total)
 file = open("input1.txt", "r")
 all_numbers = []
 first_number = -1
-number_words = {"one": "1", "two": "2", "three": "3", "four": "4", "five": "5", "six": "6",
+NUMBER_WORDS = {"one": "1", "two": "2", "three": "3", "four": "4", "five": "5", "six": "6",
                  "seven": "7", "eight": "8", "nine": "9"}
 
 for line in file:
     modified_line = line
 
     for i in range(3):
-        for word in number_words:
+        for word in NUMBER_WORDS:
             index = modified_line.find(word)
             if (index != -1):
-                modified_line = modified_line[:index + 1] + number_words[word] + modified_line[index + 1:]
+                modified_line = modified_line[:index + 1] + NUMBER_WORDS[word] + modified_line[index + 1:]
 
     for letter in modified_line:
         if not letter.isalpha() and letter != '\n':
