@@ -10,67 +10,20 @@ valid = False
 for line in file:
     map_grid.append(line)
 
-
 for row_index, row in enumerate(map_grid):
     number = ""
     for col_index, col in enumerate(row):
         if col in numbers:
             number += col
             # validation for if its near a symbol
-            # up
-            try:
-                if map_grid[row_index-1][col_index] not in dots_and_numbers:
-                    valid = True
-            except:
-                print('', end="")
-            
-            # down
-            try:
-                if map_grid[row_index+1][col_index] not in dots_and_numbers:
-                    valid = True
-            except:
-                print('', end="")
+            deltas = [(-1, 0), (1, 0), (0, -1), (0, 1), (1, 1), (-1, -1), (-1, 1), (1, -1)]
 
-            # left
-            try:
-                if map_grid[row_index][col_index-1] not in dots_and_numbers:
-                    valid = True
-            except:
-                print('', end="")
-
-            # right
-            try:
-                if map_grid[row_index][col_index+1] not in dots_and_numbers:
-                    valid = True
-            except:
-                print('', end="")
-
-            # diagonal
-            try:
-                if map_grid[row_index+1][col_index+1] not in dots_and_numbers:
-                    valid = True
-            except:
-                print('', end="")
-            
-            try:
-                if map_grid[row_index-1][col_index-1] not in dots_and_numbers:
-                    valid = True
-            except:
-                print('', end="")
-
-            try:
-                if map_grid[row_index-1][col_index+1] not in dots_and_numbers:
-                    valid = True
-            except:
-                print('', end="")
-            
-            try:
-                if map_grid[row_index+1][col_index-1] not in dots_and_numbers:
-                    valid = True
-            except:
-                print('', end="")
-
-                
+            for delta in deltas:
+                try:
+                    if map_grid[row_index + delta[0]][col_index + delta[1]] not in dots_and_numbers:
+                        valid = True
+                except:
+                    continue
         else:
             if number != "" :  
                 if valid:
@@ -79,3 +32,6 @@ for row_index, row in enumerate(map_grid):
             valid = False
 
 print(sum(all_numbers))
+
+## part 2 ##
+
