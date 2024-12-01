@@ -1,7 +1,3 @@
-# My 2023 advent of code solutions
+# My advent of code solutions
 
-Day 1: **
-
-Day 2: **
-
-Day 3: *
+2022, 2023 and doing 2024 now
